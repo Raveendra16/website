@@ -1,0 +1,770 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Bring Back EdTech{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section position-relative overflow-hidden">
+    <div class="hero-bg"></div>
+    <div class="container py-5 position-relative">
+        <div class="row align-items-center min-vh-80 py-5">
+            <div class="col-lg-12 mb-5 mb-lg-0" data-aos="fade-right">
+                <h1 class="display-3 fw-bold mb-4" style="background: var(--gradient-ye);
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                            background-clip: text;
+                            color: transparent;
+                        ">
+                    Transform Your Future With 
+                    <span style="background: var(--gradient-be);
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                            background-clip: text;
+                            color: transparent;
+                        ">
+                    Quality Education
+                    </span>
+                </h1>
+
+                <!-- <h1 class="display-3 fw-bold mb-4 ">Transform Your Future With <span class="gold-text">Quality
+                        Education</span></h1> -->
+                <p class="lead mb-5 text-light">Master in-demand skills with our expert-led courses. Join thousands of
+                    students who have accelerated their careers with Bring Back EdTech.</p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="/courses" class="btn btn-primary btn-lg px-4 py-3 animate-hover">
+                        <i class="fas fa-play-circle me-2"></i> Explore Courses
+                    </a>
+                    <a href="/contact" class="btn btn-gold btn-lg px-4 py-3 animate-hover">
+                        <i class="fas fa-user-graduate me-2"></i> Get Started
+                    </a>
+                </div>
+                <!-- <div class="mt-5 d-flex flex-wrap gap-4">
+                    <div class="d-flex align-items-center">
+                        <div class="icon-box-small gradient-bg me-3">
+                            <i class="fas fa-users text-white"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-0 text-white">10,000+</h5>
+                            <small class="text-light">Students Enrolled</small>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="icon-box-small bg-warning me-3">
+                            <i class="fas fa-star text-white"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-0 text-white">4.9/5</h5>
+                            <small class="text-light">Student Rating</small>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <div class="icon-box-small bg-success me-3">
+                            <i class="fas fa-award text-white"></i>
+                        </div>
+                        <div>
+                            <h5 class="mb-0 text-white">500+</h5>
+                            <small class="text-light">Career Transitions</small>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <!-- <div class="col-lg-6 text-center" data-aos="fade-left" data-aos-delay="200">
+                <div class="hero-image-container position-relative">
+                    <div class="floating-element-1 animate-float"></div>
+                    <div class="floating-element-2 animate-float" style="animation-delay: 2s;"></div>
+                    <div class="floating-element-3 animate-float" style="animation-delay: 4s;"></div>
+                    <div class="hero-main-image">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="section-padding bg-light">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="display-5 fw-bold mb-3">Why Choose <span class="text-gradient-primary">Bring Back EdTech</span>?
+            </h2>
+            <p class="lead text-muted">We provide the perfect environment for your learning journey</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-card text-center p-4 h-100">
+                    <div class="feature-icon mx-auto mb-4">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h4 class="mb-3">Industry-Relevant Curriculum</h4>
+                    <p class="text-muted">Courses designed with input from top companies to ensure you learn the most
+                        in-demand skills.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-card text-center p-4 h-100">
+                    <div class="feature-icon mx-auto mb-4">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h4 class="mb-3">Expert Instructors</h4>
+                    <p class="text-muted">Learn from professionals with years of industry experience and a passion for
+                        teaching.</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-card text-center p-4 h-100">
+                    <div class="feature-icon mx-auto mb-4">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4 class="mb-3">Community Support</h4>
+                    <p class="text-muted">Join a vibrant community of learners and get support from peers and mentors.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                <div class="feature-card text-center p-4 h-100">
+                    <div class="feature-icon mx-auto mb-4">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h4 class="mb-3">Career Services</h4>
+                    <p class="text-muted">Get career guidance, resume reviews, and interview preparation to land your
+                        dream job.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Popular Courses Section -->
+<section class="section-padding">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="display-5 fw-bold mb-3">Our <span class="text-gradient-primary">Popular Courses</span></h2>
+            <p class="lead text-muted">Handpicked courses to kickstart your career in technology</p>
+        </div>
+
+        <div class="container" style="max-width:1200px; margin:auto; padding:50px 15px;">
+            <h2 style="text-align:center; font-weight:700; font-size:2rem; margin-bottom:30px; color:#1e293b;">
+                Featured <span
+                    style="background:linear-gradient(90deg,#6366f1,#06b6d4); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Courses</span>
+            </h2>
+
+            <div class="row g-4"
+                style="max-height:650px; overflow-y:auto; padding-right:10px; display:flex; flex-wrap:wrap; gap:20px; justify-content:center; scrollbar-width:thin; scrollbar-color:#6366f1 #f1f5f9;">
+
+                <style>
+                    ::-webkit-scrollbar {
+                        width: 8px;
+                    }
+
+                    ::-webkit-scrollbar-track {
+                        background: #f1f5f9;
+                    }
+
+                    ::-webkit-scrollbar-thumb {
+                        background: #6366f1;
+                        border-radius: 10px;
+                    }
+
+                    ::-webkit-scrollbar-thumb:hover {
+                        background: #4f46e5;
+                    }
+                </style>
+
+                <!-- 1️⃣ Data Science -->
+                <div class="col-md-6 col-lg-4"
+                    style="flex:0 0 31%; background:#fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.08); overflow:hidden;">
+                    <div class="course-image"
+                        style="background:#fef3c7; text-align:center; padding:25px; position:relative;">
+                        <div class="course-category"
+                            style="position:absolute; top:10px; left:10px; background:#f59e0b; color:white; font-size:0.8rem; padding:3px 10px; border-radius:4px;">
+                            Data Science</div>
+                        <div class="course-icon" style="font-size:3rem; color:#f59e0b;"><i
+                                class="fas fa-chart-line"></i></div>
+                    </div>
+                    <div class="course-content" style="padding:20px;">
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <span class="badge bg-warning"
+                                style="background:#f59e0b; font-size:0.75rem;">Intermediate</span>
+                            <div style="font-size:0.85rem; color:#f59e0b;"><i class="fas fa-star"></i> <span
+                                    style="color:#334155;">4.8</span></div>
+                        </div>
+                        <h4 style="font-size:1.1rem; font-weight:600; color:#1e293b;">Data Science & Analytics</h4>
+                        <p style="font-size:0.9rem; color:#64748b;">Extract insights from data using ML and statistics.
+                        </p>
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <div style="display:flex; align-items:center; font-size:0.85rem; color:#475569;"><i
+                                    class="fas fa-user-circle" style="color:#f59e0b; margin-right:5px;"></i> Sarah Chen
+                            </div>
+                            <div style="font-size:0.85rem; color:#64748b;"><i class="far fa-clock"></i> 16 Weeks | <i
+                                    class="fas fa-user-friends"></i> 1.8K</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2️⃣ Python Full Stack -->
+                <div class="col-md-6 col-lg-4"
+                    style="flex:0 0 31%; background:#fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.08); overflow:hidden;">
+                    <div class="course-image"
+                        style="background:#eef2ff; text-align:center; padding:25px; position:relative;">
+                        <div class="course-category"
+                            style="position:absolute; top:10px; left:10px; background:#6366f1; color:white; font-size:0.8rem; padding:3px 10px; border-radius:4px;">
+                            Python</div>
+                        <div class="course-icon" style="font-size:3rem; color:#4f46e5;"><i class="fab fa-python"></i>
+                        </div>
+                    </div>
+                    <div class="course-content" style="padding:20px;">
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <span
+                                style="background:#4f46e5; color:white; font-size:0.75rem; padding:2px 8px; border-radius:4px;">Beginner</span>
+                            <div style="font-size:0.85rem; color:#f59e0b;"><i class="fas fa-star"></i> 4.9</div>
+                        </div>
+                        <h4 style="font-size:1.1rem; font-weight:600; color:#1e293b;">Python Full Stack Development</h4>
+                        <p style="font-size:0.9rem; color:#64748b;">Learn Django, Flask, and React to build end-to-end
+                            apps.</p>
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <div style="display:flex; align-items:center; font-size:0.85rem;"><i
+                                    class="fas fa-user-circle" style="color:#6366f1; margin-right:5px;"></i> John Smith
+                            </div>
+                            <div style="font-size:0.85rem; color:#64748b;"><i class="far fa-clock"></i> 14 Weeks | <i
+                                    class="fas fa-user-friends"></i> 2.2K</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3️⃣ Gen AI -->
+                <div class="col-md-6 col-lg-4"
+                    style="flex:0 0 31%; background:#fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.08); overflow:hidden;">
+                    <div class="course-image"
+                        style="background:#e0f2fe; text-align:center; padding:25px; position:relative;">
+                        <div class="course-category"
+                            style="position:absolute; top:10px; left:10px; background:#0284c7; color:white; font-size:0.8rem; padding:3px 10px; border-radius:4px;">
+                            AI</div>
+                        <div class="course-icon" style="font-size:3rem; color:#0284c7;"><i class="fas fa-robot"></i>
+                        </div>
+                    </div>
+                    <div class="course-content" style="padding:20px;">
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <span
+                                style="background:#0284c7; color:white; font-size:0.75rem; padding:2px 8px; border-radius:4px;">Advanced</span>
+                            <div style="font-size:0.85rem; color:#f59e0b;"><i class="fas fa-star"></i> 4.8</div>
+                        </div>
+                        <h4 style="font-size:1.1rem; font-weight:600; color:#1e293b;">Generative AI</h4>
+                        <p style="font-size:0.9rem; color:#64748b;">Build LLMs, chatbots, and AI-powered apps with
+                            LangChain.</p>
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <div style="display:flex; align-items:center; font-size:0.85rem;"><i
+                                    class="fas fa-user-circle" style="color:#0284c7; margin-right:5px;"></i> Alex Lee
+                            </div>
+                            <div style="font-size:0.85rem; color:#64748b;"><i class="far fa-clock"></i> 12 Weeks | <i
+                                    class="fas fa-user-friends"></i> 1.6K</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4️⃣ AWS DevOps -->
+                <div class="col-md-6 col-lg-4"
+                    style="flex:0 0 31%; background:#fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.08); overflow:hidden;">
+                    <div class="course-image"
+                        style="background:#ecfdf5; text-align:center; padding:25px; position:relative;">
+                        <div class="course-category"
+                            style="position:absolute; top:10px; left:10px; background:#059669; color:white; font-size:0.8rem; padding:3px 10px; border-radius:4px;">
+                            Cloud</div>
+                        <div class="course-icon" style="font-size:3rem; color:#059669;"><i class="fab fa-aws"></i></div>
+                    </div>
+                    <div class="course-content" style="padding:20px;">
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <span
+                                style="background:#059669; color:white; font-size:0.75rem; padding:2px 8px; border-radius:4px;">Intermediate</span>
+                            <div style="font-size:0.85rem; color:#f59e0b;"><i class="fas fa-star"></i> 4.7</div>
+                        </div>
+                        <h4 style="font-size:1.1rem; font-weight:600; color:#1e293b;">AWS DevOps</h4>
+                        <p style="font-size:0.9rem; color:#64748b;">Deploy and automate apps using AWS, Docker, and
+                            CI/CD tools.</p>
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <div style="display:flex; align-items:center; font-size:0.85rem;"><i
+                                    class="fas fa-user-circle" style="color:#059669; margin-right:5px;"></i> Emma Wilson
+                            </div>
+                            <div style="font-size:0.85rem; color:#64748b;"><i class="far fa-clock"></i> 10 Weeks | <i
+                                    class="fas fa-user-friends"></i> 1.9K</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5️⃣ Data Analytics -->
+                <div class="col-md-6 col-lg-4"
+                    style="flex:0 0 31%; background:#fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.08); overflow:hidden;">
+                    <div class="course-image"
+                        style="background:#faf5ff; text-align:center; padding:25px; position:relative;">
+                        <div class="course-category"
+                            style="position:absolute; top:10px; left:10px; background:#9333ea; color:white; font-size:0.8rem; padding:3px 10px; border-radius:4px;">
+                            Analytics</div>
+                        <div class="course-icon" style="font-size:3rem; color:#9333ea;"><i class="fas fa-chart-pie"></i>
+                        </div>
+                    </div>
+                    <div class="course-content" style="padding:20px;">
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <span
+                                style="background:#9333ea; color:white; font-size:0.75rem; padding:2px 8px; border-radius:4px;">Beginner</span>
+                            <div style="font-size:0.85rem; color:#f59e0b;"><i class="fas fa-star"></i> 4.9</div>
+                        </div>
+                        <h4 style="font-size:1.1rem; font-weight:600; color:#1e293b;">Data Analytics</h4>
+                        <p style="font-size:0.9rem; color:#64748b;">Master Excel, SQL, and Power BI for actionable
+                            insights.</p>
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <div style="display:flex; align-items:center; font-size:0.85rem;"><i
+                                    class="fas fa-user-circle" style="color:#9333ea; margin-right:5px;"></i> David Brown
+                            </div>
+                            <div style="font-size:0.85rem; color:#64748b;"><i class="far fa-clock"></i> 8 Weeks | <i
+                                    class="fas fa-user-friends"></i> 2.1K</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6️⃣ Java Full Stack -->
+                <div class="col-md-6 col-lg-4"
+                    style="flex:0 0 31%; background:#fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.08); overflow:hidden;">
+                    <div class="course-image"
+                        style="background:#fff7ed; text-align:center; padding:25px; position:relative;">
+                        <div class="course-category"
+                            style="position:absolute; top:10px; left:10px; background:#ea580c; color:white; font-size:0.8rem; padding:3px 10px; border-radius:4px;">
+                            Java</div>
+                        <div class="course-icon" style="font-size:3rem; color:#ea580c;"><i class="fab fa-java"></i>
+                        </div>
+                    </div>
+                    <div class="course-content" style="padding:20px;">
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <span
+                                style="background:#ea580c; color:white; font-size:0.75rem; padding:2px 8px; border-radius:4px;">Intermediate</span>
+                            <div style="font-size:0.85rem; color:#f59e0b;"><i class="fas fa-star"></i> 4.8</div>
+                        </div>
+                        <h4 style="font-size:1.1rem; font-weight:600; color:#1e293b;">Java Full Stack Development</h4>
+                        <p style="font-size:0.9rem; color:#64748b;">Build enterprise apps using Spring Boot and React.
+                        </p>
+                        <div style="display:flex; justify-content:space-between; align-items:center;">
+                            <div style="display:flex; align-items:center; font-size:0.85rem;"><i
+                                    class="fas fa-user-circle" style="color:#ea580c; margin-right:5px;"></i> Maria Gomez
+                            </div>
+                            <div style="font-size:0.85rem; color:#64748b;"><i class="far fa-clock"></i> 14 Weeks | <i
+                                    class="fas fa-user-friends"></i> 2.0K</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7️⃣ Web Development -->
+                <!-- <div class="col-md-6 col-lg-4" style="flex:0 0 31%; background:#fff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.08); overflow:hidden;">
+      <div class="course-image" style="background:#dbeafe; text-align:center; padding:25px; position:relative;">
+        <div class="course-category" style="position:absolute; top:10px; left:10px; background:#2563eb; color:white; font-size:0.8rem; padding:3px 10px; border-radius:4px;">Development</div>
+        <div class="course-icon" style="font-size:3rem; color:#2563eb;"><i class="fas fa-laptop-code"></i></div>
+      </div>
+      <div class="course-content" style="padding:20px;">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="background:#2563eb; color:white; font-size:0.75rem; padding:2px 8px; border-radius:4px;">Beginner</span>
+          <div style="font-size:0.85rem; color:#f59e0b;"><i class="fas fa-star"></i> 4.7</div>
+        </div>
+        <h4 style="font-size:1.1rem; font-weight:600; color:#1e293b;">Web Development</h4>
+        <p style="font-size:0.9rem; color:#64748b;">Learn HTML, CSS, JavaScript, and frameworks to build modern websites.</p>
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div style="display:flex; align-items:center; font-size:0.85rem;"><i class="fas fa-user-circle" style="color:#2563eb; margin-right:5px;"></i> Liam Patel</div>
+          <div style="font-size:0.85rem; color:#64748b;"><i class="far fa-clock"></i> 10 Weeks | <i class="fas fa-user-friends"></i> 2.4K</div>
+        </div>
+      </div>
+    </div> -->
+            </div>
+
+            <div class="text-center mt-5">
+                <a href="/courses" class="btn btn-primary btn-lg px-5">View All Courses</a>
+            </div>
+        </div>
+
+</section>
+
+<!-- Testimonials Section -->
+<section class="section-padding bg-gradient-primary text-white">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="display-5 fw-bold mb-3">What Our <span class="text-gradient-gold">Students Say</span></h2>
+            <p class="lead">Hear from our successful alumni who transformed their careers</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="testimonial-card h-100">
+                    <div class="testimonial-content p-4">
+                        <div class="quote-icon mb-3">
+                            <i class="fas fa-quote-left text-gradient-gold"></i>
+                        </div>
+                        <p class="mb-4" style="color: #000;">"The Full Stack Web Development course completely
+                            transformed my career. I went from a non-tech background to landing a developer job in just
+                            3 months!"</p>
+                        <div class="testimonial-author d-flex align-items-center">
+                            <div class="author-avatar me-3">
+                                <i class="fas fa-user gradient-bg text-white rounded-circle p-2"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-0">Sarah Johnson</h5>
+                                <p class="mb-0" style="color: #000;">Web Developer at TechCorp</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="testimonial-card h-100">
+                    <div class="testimonial-content p-4">
+                        <div class="quote-icon mb-3">
+                            <i class="fas fa-quote-left text-gradient-gold"></i>
+                        </div>
+                        <p class="mb-4" style="color: #000;">"The instructors are amazing! They break down complex
+                            topics into easy-to-understand concepts. The community support is incredible too."</p>
+                        <div class="testimonial-author d-flex align-items-center">
+                            <div class="author-avatar me-3">
+                                <i class="fas fa-user gradient-bg text-white rounded-circle p-2"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-0">Michael Chen</h5>
+                                <p class="mb-0" style="color: #000;">Data Analyst at DataInsights</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="testimonial-card h-100">
+                    <div class="testimonial-content p-4">
+                        <div class="quote-icon mb-3">
+                            <i class="fas fa-quote-left text-gradient-gold"></i>
+                        </div>
+                        <p class="mb-4" style="color: #000;">"I was able to build my first mobile app within weeks of
+                            starting the course. The project-based approach really helped me learn by doing."</p>
+                        <div class="testimonial-author d-flex align-items-center">
+                            <div class="author-avatar me-3">
+                                <i class="fas fa-user gradient-bg text-white rounded-circle p-2"></i>
+                            </div>
+                            <div>
+                                <h5 class="mb-0">Priya Sharma</h5>
+                                <p class="mb-0" style="color: #000;">App Developer at MobileFirst</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section-padding bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 mb-4 mb-lg-0" data-aos="fade-right">
+                <h2 class="display-6 fw-bold mb-3">Ready to Start Your <span class="text-gradient-primary">Learning
+                        Journey</span>?</h2>
+                <p class="lead mb-4">Join thousands of students who have transformed their careers with our courses.
+                    Take the first step today.</p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="/courses" class="btn btn-primary btn-lg px-4">Browse Courses</a>
+                    <a href="/contact" class="btn btn-outline-primary btn-lg px-4">Talk to an Advisor</a>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center" data-aos="fade-left">
+                <div class="cta-image">
+                    <i class="fas fa-rocket text-gradient-primary"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Hero Section */
+    .hero-section {
+        background: var(--gradient-hero);
+        color: white;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:
+            radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(255, 71, 87, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 40% 40%, rgba(108, 99, 255, 0.05) 0%, transparent 50%);
+    }
+
+    .min-vh-80 {
+        min-height: 80vh;
+    }
+
+    .hero-image-container {
+        position: relative;
+    }
+
+    .hero-main-image {
+        font-size: 20rem;
+        color: rgba(255, 255, 255, 0.1);
+        animation: pulse 4s ease-in-out infinite;
+    }
+
+    .floating-element-1,
+    .floating-element-2,
+    .floating-element-3 {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .floating-element-1 {
+        width: 100px;
+        height: 100px;
+        top: 10%;
+        left: 10%;
+        background: rgba(255, 215, 0, 0.1);
+    }
+
+    .floating-element-2 {
+        width: 70px;
+        height: 70px;
+        bottom: 20%;
+        right: 10%;
+        background: rgba(255, 71, 87, 0.1);
+    }
+
+    .floating-element-3 {
+        width: 50px;
+        height: 50px;
+        top: 50%;
+        left: 5%;
+        background: rgba(54, 209, 220, 0.1);
+    }
+
+    .icon-box-small {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+    }
+
+    /* Feature Cards */
+    .feature-card {
+        background: white;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .feature-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: var(--gradient-primary);
+    }
+
+    .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-dark);
+    }
+
+    .feature-icon {
+        width: 80px;
+        height: 80px;
+        background: var(--gradient-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.8rem;
+        transition: var(--transition);
+        box-shadow: 0 8px 20px rgba(108, 99, 255, 0.3);
+    }
+
+    .feature-card:hover .feature-icon {
+        transform: scale(1.1) rotate(5deg);
+        box-shadow: 0 12px 25px rgba(108, 99, 255, 0.4);
+    }
+
+    /* Course Cards */
+    .course-card {
+        background: white;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        position: relative;
+    }
+
+    .course-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: var(--gradient-primary);
+    }
+
+    .course-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-dark);
+    }
+
+    .course-image {
+        position: relative;
+        height: 200px;
+        overflow: hidden;
+        background: var(--gradient-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .course-icon {
+        font-size: 4rem;
+        color: white;
+        opacity: 0.8;
+    }
+
+    .course-category {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        color: white;
+        padding: 5px 12px;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .instructor-avatar {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: var(--gradient-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 0.8rem;
+    }
+
+    /* Testimonials */
+    .testimonial-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: var(--radius);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .testimonial-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: var(--gradient-gold);
+    }
+
+    .testimonial-card:hover {
+        transform: translateY(-5px);
+        background: rgba(255, 255, 255, 0.15);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .quote-icon {
+        font-size: 2rem;
+        color: rgba(255, 255, 255, 0.3);
+    }
+
+    .author-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+    }
+
+    /* CTA Section */
+    .cta-image {
+        font-size: 8rem;
+        opacity: 0.7;
+        animation: float 6s ease-in-out infinite;
+    }
+
+    /* Animations */
+    .animate-hover {
+        transition: var(--transition);
+    }
+
+    .animate-hover:hover {
+        transform: translateY(-5px);
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(0px);
+        }
+
+        50% {
+            transform: translateY(-20px);
+        }
+
+        100% {
+            transform: translateY(0px);
+        }
+    }
+
+    .animate-float {
+        animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+            opacity: 0.1;
+        }
+
+        50% {
+            transform: scale(1.05);
+            opacity: 0.15;
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 0.1;
+        }
+    }
+</style>
+
+<script>
+    // Initialize AOS animations for this page
+    document.addEventListener('DOMContentLoaded', function () {
+        // Add any page-specific animations or interactions here
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,514 @@
+{% extends 'base.html' %}
+
+{% block title %}Courses - Bring Back EdTech{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="courses-hero-section position-relative overflow-hidden">
+    <div class="courses-hero-bg"></div>
+    <div class="container py-5 position-relative">
+        <div class="row align-items-center min-vh-60 py-5">
+            <div class="col-lg-8 text-center mx-auto" data-aos="fade-up">
+                <h1 class="display-3 fw-bold mb-4 text-white"> <span style="background: var(--gradient-be);
+                            -webkit-background-clip: text;
+                            -webkit-text-fill-color: transparent;
+                            background-clip: text;
+                            color: transparent;
+                        ">Explore Our Courses</span></h1>
+                <p class="lead mb-5 text-light">Discover comprehensive programs designed to transform your career. Learn from industry experts and join our community of successful graduates.</p>
+                <div class="d-flex flex-wrap gap-3 justify-content-center">
+                    <a href="#course-categories" class="btn btn-primary btn-lg px-4 py-3 animate-hover">
+                        <i class="fas fa-list me-2"></i> Browse Categories
+                    </a>
+                    <a href="#featured-courses" class="btn btn-gold btn-lg px-4 py-3 animate-hover">
+                        <i class="fas fa-star me-2"></i> Featured Courses
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Course Categories -->
+<section id="course-categories" class="section-padding bg-light">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="display-5 fw-bold mb-3">Course <span class="text-gradient-primary">Categories</span></h2>
+            <p class="lead text-muted">Find your perfect learning path across different technology domains</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="category-card text-center p-4 h-100">
+                    <div class="category-icon mx-auto mb-4">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4 class="mb-3">Data Science with AI</h4>
+                    <p class="text-muted mb-3">Data analysis & ML courses</p>
+                    <span class="badge bg-primary">6 Courses</span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="category-card text-center p-4 h-100">
+                    <div class="category-icon mx-auto mb-4">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h4 class="mb-3">Web Development</h4>
+                    <p class="text-muted mb-3">Full-stack development courses</p>
+                    <span class="badge bg-primary">8 Courses</span>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                <div class="category-card text-center p-4 h-100">
+                    <div class="category-icon mx-auto mb-4">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h4 class="mb-3">Mobile Development</h4>
+                    <p class="text-muted mb-3">iOS & Android app development</p>
+                    <span class="badge bg-primary">5 Courses</span>
+                </div>
+            </div>
+            <!-- <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="category-card text-center p-4 h-100">
+                    <div class="category-icon mx-auto mb-4">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4 class="mb-3">Data Science</h4>
+                    <p class="text-muted mb-3">Data analysis & ML courses</p>
+                    <span class="badge bg-primary">6 Courses</span>
+                </div>
+            </div> -->
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                <div class="category-card text-center p-4 h-100">
+                    <div class="category-icon mx-auto mb-4">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4 class="mb-3">Cyber <br> Security</h4>
+                    <p class="text-muted mb-3">Security & ethical hacking</p>
+                    <span class="badge bg-primary">4 Courses</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Featured Courses -->
+<section id="featured-courses" class="section-padding">
+    <div class="container">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <h2 class="display- fw-bold mb-3">Featured <span class="text-gradient-primary">Courses</span></h2>
+            <p class="lead text-muted">Handpicked courses to kickstart your career in technology</p>
+        </div>
+        
+        <div class="row g-4">
+            {% for course in courses %}
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="{{ loop.index * 100 }}">
+                <div class="course-card-detailed h-100">
+                    <div class="row g-0 h-100">
+                        <div class="col-md-4">
+                            <div class="course-image h-100">
+                                <div class="course-category">{{ course.category }}</div>
+                                <div class="course-icon">
+                                    <i class="{{ course.icon }}"></i>
+                                </div>
+                                <div class="course-overlay">
+                                    <div class="overlay-content">
+                                        <a href="#" class="btn btn-light btn-sm mb-2">
+                                            <i class="fas fa-eye me-1"></i> Preview
+                                        </a>
+                                        <a href="#" class="btn btn-light btn-sm" onclick="downloadBrochure('{{ course.title }}')">
+                                            <i class="fas fa-download me-1"></i>Brochure
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="course-content p-4 h-100 d-flex flex-column">
+                                <div class="d-flex justify-content-between align-items-start mb-3">
+                                    <div>
+                                        <span class="badge bg-primary">{{ course.level }}</span>
+                                        <span class="badge bg-warning ms-2">
+                                            <i class="fas fa-star me-1"></i>{{ course.rating }}
+                                        </span>
+                                    </div>
+                                    <div class="course-price">
+                                        <span class="text-gradient-primary fw-bold">{{ course.price }}</span>
+                                    </div>
+                                </div>
+                                
+                                <h4 class="mb-3">{{ course.title }}</h4>
+                                <p class="text-muted mb-3 flex-grow-1">{{ course.description }}</p>
+                                
+                                <div class="course-meta mb-3">
+                                    <div class="row g-2">
+                                        <div class="col-6">
+                                            <small class="text-muted">
+                                                <i class="far fa-clock me-1"></i> {{ course.duration }}
+                                            </small>
+                                        </div>
+                                        <div class="col-6">
+                                            <small class="text-muted">
+                                                <i class="fas fa-user-friends me-1"></i> {{ course.enrolled }}+ enrolled
+                                            </small>
+                                        </div>
+                                        <div class="col-6">
+                                            <small class="text-muted">
+                                                <i class="fas fa-video me-1"></i> {{ course.lectures }} lectures
+                                            </small>
+                                        </div>
+                                        <div class="col-6">
+                                            <small class="text-muted">
+                                                <i class="fas fa-tasks me-1"></i> {{ course.projects }} projects
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="d-flex justify-content-between align-items-center mt-auto">
+                                    <!-- <div class="instructor d-flex align-items-center">
+                                        <div class="instructor-avatar me-2">
+                                            <i class="fas fa-user"></i>
+                                        </div>
+                                        <span class="small">{{ course.instructor }}</span>
+                                    </div> -->
+                                    <div class="course-actions">
+                                        <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#courseModal{{ loop.index }}">
+                                            <i class="fas fa-info-circle me-1"></i> Details
+                                        </button>
+                                        <a href="#" class="btn btn-success btn-sm ms-2">
+                                            <i class="fas fa-shopping-cart me-1"></i> Enroll
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <!-- Course Modals -->
+        {% for course in courses %}
+        <div class="modal fade" id="courseModal{{ loop.index }}" tabindex="-1" aria-labelledby="courseModalLabel{{ loop.index }}" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header gradient-bg text-white">
+                        <h5 class="modal-title" id="courseModalLabel{{ loop.index }}">
+                            <i class="fas {{ course.icon }} me-2"></i>{{ course.title }}
+                        </h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="text-gradient-primary">Course Overview</h6>
+                                <p class="mb-4">{{ course.full_description }}</p>
+                                
+                                <h6 class="text-gradient-primary mt-4">What You'll Learn</h6>
+                                <ul class="list-unstyled">
+                                    {% for skill in course.skills %}
+                                    <li class="mb-2">
+                                        <i class="fas fa-check text-success me-2"></i>
+                                        {{ skill }}
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="course-details-card p-4">
+                                    <h6 class="text-gradient-primary mb-3">Course Details</h6>
+                                    <div class="detail-item mb-3">
+                                        <strong><i class="far fa-clock me-2 text-primary"></i>Duration:</strong>
+                                        <span class="float-end">{{ course.duration }}</span>
+                                    </div>
+                                    <div class="detail-item mb-3">
+                                        <strong><i class="fas fa-video me-2 text-primary"></i>Lectures:</strong>
+                                        <span class="float-end">{{ course.lectures }}</span>
+                                    </div>
+                                    <div class="detail-item mb-3">
+                                        <strong><i class="fas fa-tasks me-2 text-primary"></i>Projects:</strong>
+                                        <span class="float-end">{{ course.projects }}</span>
+                                    </div>
+                                    <div class="detail-item mb-3">
+                                        <strong><i class="fas fa-user me-2 text-primary"></i>Instructor:</strong>
+                                        <span class="float-end">{{ course.instructor }}</span>
+                                    </div>
+                                    <div class="detail-item mb-4">
+                                        <strong><i class="fas fa-star me-2 text-primary"></i>Rating:</strong>
+                                        <span class="float-end">{{ course.rating }}/5.0</span>
+                                    </div>
+
+
+                                    <div class="course-actions">
+                                        <button class="btn btn-primary btn-sm" onclick="downloadBrochure('{{ course.title }}')">
+                                            <i class="fas fa-download me-1"></i>  Brochure
+                                        </button>
+                                        <a href="#" class="btn btn-success btn-sm ms-2">
+                                            <i class="fas fa-shopping-cart me-1"></i> Enroll
+                                        </a>
+                                    </div>
+    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section-padding bg-gradient-primary text-white">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-8 mb-4 mb-lg-0" data-aos="fade-right">
+                <h2 class="display-6 fw-bold mb-3">Can't Find What You're Looking For?</h2>
+                <p class="lead mb-4">Contact our learning advisors for personalized course recommendations and career guidance.</p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="/contact" class="btn btn-light btn-lg px-4">
+                        <i class="fas fa-headset me-2"></i> Talk to Advisor
+                    </a>
+                    <a href="#" class="btn btn-outline-light btn-lg px-4" style="color: black;">
+                        <i class="fas fa-download me-2" style="color: black;"></i> Download Catalog
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center" data-aos="fade-left">
+                <div class="cta-image">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* Courses Hero Section */
+    .courses-hero-section {
+        background: linear-gradient(135deg, var(--purple-primary) 0%, var(--blue-primary) 100%);
+        color: white;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .courses-hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: 
+            radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(255, 71, 87, 0.1) 0%, transparent 50%);
+    }
+    
+    .min-vh-60 {
+        min-height: 60vh;
+    }
+    
+    /* Category Cards */
+    .category-card {
+        background: white;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .category-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: var(--gradient-primary);
+    }
+    
+    .category-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-dark);
+    }
+    
+    .category-icon {
+        width: 80px;
+        height: 80px;
+        background: var(--gradient-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.8rem;
+        transition: var(--transition);
+        box-shadow: 0 8px 20px rgba(108, 99, 255, 0.3);
+    }
+    
+    .category-card:hover .category-icon {
+        transform: scale(1.1) rotate(5deg);
+        box-shadow: 0 12px 25px rgba(108, 99, 255, 0.4);
+    }
+    
+    /* Detailed Course Cards */
+    .course-card-detailed {
+        background: white;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .course-card-detailed::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: var(--gradient-primary);
+    }
+    
+    .course-card-detailed:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-dark);
+    }
+    
+    .course-image {
+        position: relative;
+        background: var(--gradient-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+    
+    .course-icon {
+        font-size: 3rem;
+        color: white;
+        opacity: 0.8;
+    }
+    
+    .course-category {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        color: white;
+        padding: 5px 12px;
+        border-radius: 50px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .course-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .course-card-detailed:hover .course-overlay {
+        opacity: 1;
+    }
+    
+    .overlay-content {
+        text-align: center;
+    }
+    
+    .course-price {
+        font-size: 1.5rem;
+    }
+    
+    .course-meta {
+        background: rgba(108, 99, 255, 0.05);
+        border-radius: var(--radius);
+        padding: 15px;
+    }
+    
+    .instructor-avatar {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: var(--gradient-primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 0.8rem;
+    }
+    
+    /* Modal Styles */
+    .course-details-card {
+        background: rgba(108, 99, 255, 0.05);
+        border-radius: var(--radius);
+        border-left: 4px solid var(--purple-primary);
+    }
+    
+    .detail-item {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        padding-bottom: 10px;
+    }
+    
+    .detail-item:last-child {
+        border-bottom: none;
+    }
+    
+    /* CTA Section */
+    .cta-image {
+        font-size: 6rem;
+        opacity: 0.7;
+        animation: float 6s ease-in-out infinite;
+    }
+</style>
+
+<script>
+    function downloadBrochure(courseTitle) {
+        // Simulate brochure download
+        const link = document.createElement('a');
+        link.href = '#'; // In real implementation, this would be the brochure PDF URL
+        link.download = `${courseTitle.replace(/\s+/g, '_')}_Brochure.pdf`;
+        
+        // Show download confirmation
+        const toast = document.createElement('div');
+        toast.className = 'alert alert-success position-fixed top-0 end-0 m-3';
+        toast.style.zIndex = '9999';
+        toast.innerHTML = `
+            <i class="fas fa-check-circle me-2"></i>
+            Brochure for "${courseTitle}" is being downloaded...
+        `;
+        document.body.appendChild(toast);
+        
+        // Remove toast after 3 seconds
+        setTimeout(() => {
+            toast.remove();
+        }, 3000);
+        
+        // Trigger download (in real implementation, this would actually download the file)
+        console.log(`Downloading brochure for: ${courseTitle}`);
+        // link.click(); // Uncomment in real implementation
+    }
+    
+    // Initialize tooltips
+    document.addEventListener('DOMContentLoaded', function() {
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl);
+        });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Bring Back EdTech Pvt Ltd{% endblock %}</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos@2.3.4/aos.css">
+    <style>
+        :root {
+            /* Color Palette */
+            --purple-primary: #6C63FF;
+            --purple-dark: #564FD8;
+            --purple-light: #8B85FF;
+            --blue-primary: #36D1DC;
+            --blue-dark: #2999A3;
+            --gold-primary: #FFD700;
+            --gold-dark: #E6C200;
+            --red-primary: #FF4757;
+            --red-dark: #E6404D;
+            --black: #1A1A2E;
+            --dark: #2D2B55;
+            --light: #F8F9FE;
+            --text: #4A4A68;
+            --text-light: #8C8CA1;
+
+            /* Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--purple-primary) 0%, var(--blue-primary) 100%);
+            --gradient-dark: linear-gradient(135deg, var(--purple-dark) 0%, var(--blue-dark) 100%);
+            --gradient-gold: linear-gradient(135deg, var(--gold-primary) 0%, #FFA500 100%);
+            --gradient-red: linear-gradient(135deg, var(--red-primary) 0%, #FF6B6B 100%);
+            --gradient-hero: linear-gradient(135deg, var(--purple-primary) 0%, var(--blue-primary) 50%, var(--purple-dark) 100%);
+            --gradient-yellow: linear-gradient(135deg, var(--purple-primary) 0%, var(--blue-primary) 50%, var(--gold-primary) 100%);
+            --gradient-ye: linear-gradient(135deg, var(--gold-primary) 40%, var(--blue-primary) 20%, var(--purple-dark) 40%);
+            --gradient-be: linear-gradient(135deg, var(--gold-primary) 60%, var(--blue-primary) 20%, var(--purple-dark) 40%);
+            /* --gradient-be: linear-gradient(135deg, var(--purple-dark) 60%, var(--gold-primary) 30%, var(--gold-primary) 40%); */
+
+            /* Shadows */
+            --shadow: 0 10px 30px rgba(108, 99, 255, 0.15);
+            --shadow-dark: 0 15px 40px rgba(45, 43, 85, 0.1);
+            --shadow-gold: 0 10px 30px rgba(255, 215, 0, 0.2);
+
+            /* Border Radius */
+            --radius: 16px;
+            --radius-lg: 24px;
+
+            /* Transitions */
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            --transition-smooth: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .mytxt{
+             background: var(--gradient-yellow);
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 10% 20%, rgba(108, 99, 255, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(54, 209, 220, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.03) 0%, transparent 30%);
+            z-index: -1;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: var(--dark);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-smooth);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--light);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-primary);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gradient-dark);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.055);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 5px 25px rgba(8, 150, 227, 0.824);
+            padding: 20px 0;
+            transition: var(--transition);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(108, 99, 255, 0.1);
+        }
+
+        .navbar.scrolled {
+            padding: 12px 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.8rem;
+            background: var(--gradient-yellow);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .navbar-brand:hover {
+            transform: translateY(-2px);
+        }
+
+        .navbar-brand img {
+            margin-right: 12px;
+            border-radius: 12px;
+            transition: var(--transition);
+            box-shadow: 0 8px 20px rgba(108, 99, 255, 0.25);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .navbar-brand:hover img {
+            transform: rotate(8deg) scale(1.05);
+            box-shadow: 0 12px 25px rgba(108, 99, 255, 0.35);
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--text) !important;
+            margin: 0 5px;
+            padding: 10px 20px !important;
+            border-radius: 50px;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--purple-primary) !important;
+            background: rgba(108, 99, 255, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .nav-link.active {
+            color: var(--purple-primary) !important;
+            font-weight: 600;
+            background: rgba(108, 99, 255, 0.1);
+        }
+
+        .nav-link.active::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 20px;
+            right: 20px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 3px;
+        }
+
+        .navbar-toggler {
+            border: none;
+            padding: 8px 10px;
+            border-radius: 12px;
+            background: rgba(108, 99, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .navbar-toggler:hover {
+            background: rgba(108, 99, 255, 0.2);
+            transform: scale(1.05);
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            min-height: calc(100vh - 180px);
+            padding-top: 100px;
+        }
+
+        /* Alert Messages */
+        .alert {
+            border: none;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 18px 22px;
+            margin-bottom: 24px;
+            border-left: 4px solid;
+            backdrop-filter: blur(10px);
+        }
+
+        .alert-success {
+            background: linear-gradient(135deg, rgba(75, 181, 67, 0.1), rgba(75, 181, 67, 0.05));
+            color: #2e7d32;
+            border-left-color: #4BB543;
+        }
+
+        .alert-warning {
+            background: linear-gradient(135deg, rgba(255, 204, 0, 0.1), rgba(255, 204, 0, 0.05));
+            color: #f57f17;
+            border-left-color: var(--gold-primary);
+        }
+
+        .alert-danger {
+            background: linear-gradient(135deg, rgba(255, 71, 87, 0.1), rgba(255, 71, 87, 0.05));
+            color: #c62828;
+            border-left-color: var(--red-primary);
+        }
+
+        .alert-info {
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.1), rgba(108, 99, 255, 0.05));
+            color: var(--purple-dark);
+            border-left-color: var(--purple-primary);
+        }
+
+        /* Buttons */
+        .btn {
+            border-radius: 50px;
+            padding: 14px 32px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.7s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(108, 99, 255, 0.35);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: var(--gradient-red);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(255, 71, 87, 0.35);
+            color: white;
+        }
+
+        .btn-gold {
+            background: var(--gradient-gold);
+            color: var(--dark);
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-gold);
+            color: var(--dark);
+        }
+
+        .btn-outline-primary {
+            background: transparent;
+            border: 2px solid var(--purple-primary);
+            color: var(--purple-primary);
+            box-shadow: none;
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--gradient-primary);
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(108, 99, 255, 0.25);
+        }
+
+        .btn-lg {
+            padding: 16px 40px;
+            font-size: 1.1rem;
+        }
+
+        /* Cards */
+        .card {
+            border: none;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            overflow: hidden;
+            background: white;
+            position: relative;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-primary);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-dark);
+        }
+
+        .card-gold::before {
+            background: var(--gradient-gold);
+        }
+
+        .card-red::before {
+            background: var(--gradient-red);
+        }
+
+        .card-header {
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            padding: 20px 25px;
+            font-weight: 600;
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 70px 0 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-primary);
+        }
+
+        footer::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(108, 99, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 25px;
+            max-width: 300px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: var(--transition);
+            display: inline-block;
+            position: relative;
+        }
+
+        .footer-links a::before {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .footer-links a:hover::before {
+            width: 100%;
+        }
+
+        .footer-heading {
+            color: white;
+            font-weight: 600;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: 3px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-icon:hover {
+            background: var(--gradient-primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.3);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 25px;
+            margin-top: 50px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(108, 99, 255, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(108, 99, 255, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(108, 99, 255, 0);
+            }
+        }
+
+        /* Loading Animation */
+        .loading-spinner {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+        }
+
+        .loading-spinner:after {
+            content: " ";
+            display: block;
+            width: 64px;
+            height: 64px;
+            margin: 8px;
+            border-radius: 50%;
+            border: 6px solid var(--purple-primary);
+            border-color: var(--purple-primary) transparent var(--purple-primary) transparent;
+            animation: loading-spinner 1.2s linear infinite;
+        }
+
+        @keyframes loading-spinner {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Utility Classes */
+        .gradient-text {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .gradient-bg {
+            background: var(--gradient-primary);
+        }
+
+        .gold-text {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .text-gradient-primary {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .text-gradient-gold {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .navbar-collapse {
+                background: white;
+                border-radius: var(--radius);
+                padding: 20px;
+                box-shadow: var(--shadow);
+                margin-top: 15px;
+            }
+
+            .nav-link {
+                margin: 5px 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+
+            .main-content {
+                padding-top: 90px;
+            }
+
+            .btn {
+                padding: 12px 24px;
+            }
+
+            .section-padding {
+                padding: 70px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="/static/images/img.jpg" alt="Logo" width="50" height="50">
+                Bring Back EdTech
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary" href="/">
+                            <i class="fas fa-home me-2"></i>Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary" href="/courses">
+                            <i class="fas fa-book-open me-2"></i>Courses
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary" href="/about">
+                            <i class="fas fa-info-circle me-2"></i>About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary"  href="/contact">
+                            <i class="fas fa-envelope me-2"></i>Contact
+                        </a>
+                    </li>
+                    <!-- <li class="nav-item ms-2">
+            <a class="btn btn-primary" href="/login">
+                <i class="fas fa-sign-in-alt me-2"></i>Login
+            </a>
+        </li> -->
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="container mt-4">
+        {% for category, message in messages %}
+        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+            <div class="d-flex align-items-center">
+                {% if category == 'success' %}
+                <i class="fas fa-check-circle me-3 fs-5"></i>
+                {% elif category == 'warning' %}
+                <i class="fas fa-exclamation-triangle me-3 fs-5"></i>
+                {% elif category == 'danger' %}
+                <i class="fas fa-times-circle me-3 fs-5"></i>
+                {% else %}
+                <i class="fas fa-info-circle me-3 fs-5"></i>
+                {% endif %}
+                <div>{{ message }}</div>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <!-- Main Content Block -->
+    <main class="main-content">
+        {% block content %}
+        <!-- Default content can go here, or leave empty for child templates -->
+        <div class="container py-5">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-4 text-gradient-primary">Welcome to Bring Back EdTech</h1>
+                    <p class="lead mb-5">Transform your future with our cutting-edge educational programs designed for
+                        the digital age.</p>
+                    <div class="d-flex gap-3 justify-content-center flex-wrap">
+                        <a href="/courses" class="btn btn-primary btn-lg">
+                            <i class="fas fa-play-circle me-2"></i>Explore Courses
+                        </a>
+                        <a href="/about" class="btn btn-outline-primary btn-lg">
+                            <i class="fas fa-info-circle me-2"></i>Learn More
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <div class="footer-logo">Bring Back EdTech</div>
+                    <p class="footer-description">Transforming education through innovative technology and expert-led
+                        courses. Empowering learners to build successful careers.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-5 mb-md-0">
+                    <h5 class="footer-heading">Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/courses">Courses</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-5 mb-md-0">
+                    <h5 class="footer-heading">Resources</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <h5 class="footer-heading">Contact Info</h5>
+                    <ul class="footer-links">
+                        <li class="mb-3">
+                            <i class="fas fa-envelope me-2 text-gradient-primary"></i>
+                            bringbackedutech@gmail.com
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-phone me-2 text-gradient-primary"></i>
+                            +91 8179641998
+                        </li>
+                        <li class="mb-3">
+                            <i class="fas fa-map-marker-alt me-2 text-gradient-primary"></i>
+                            123 Education Street, Tech City
+                        </li>
+                        <li>
+                            <i class="fas fa-clock me-2 text-gradient-primary"></i>
+                            Mon - Fri: 9:00 AM - 6:00 PM
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Bring Back EdTech Pvt Ltd. All rights reserved. | Designed with <i
+                        class="fas fa-heart text-danger mx-1"></i> for the future of education</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos@2.3.4/aos.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+    <script>
+        // Initialize AOS animations
+        document.addEventListener('DOMContentLoaded', function () {
+            // Navbar scroll effect
+            window.addEventListener('scroll', function () {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Add active class to current page in navigation
+            const currentLocation = location.href;
+            const menuItems = document.querySelectorAll('.nav-link');
+            menuItems.forEach(item => {
+                if (item.href === currentLocation) {
+                    item.classList.add('active');
+                }
+            });
+
+            // Initialize animations
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 800,
+                    easing: 'ease-in-out',
+                    once: true,
+                    offset: 100
+                });
+            }
+        });
+    </script>
+    {% if msg %}
+    <script>
+        alert('{{ msg }}');
+    </script>
+    {% endif %}
+
+</body>
+
+</html>
