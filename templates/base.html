@@ -4,6 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem('theme');
+                var theme = saved || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (e) {}
+        })();
+    </script>
     <title>{% block title %}Bring Back EdTech Pvt Ltd{% endblock %}</title>
     <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -28,6 +37,15 @@
             --light: #F8F9FE;
             --text: #4A4A68;
             --text-light: #8C8CA1;
+
+            /* Theme-aware tokens (light mode defaults) */
+            --page-bg: var(--light);
+            --heading-color: var(--dark);
+            --body-text: var(--text);
+            --card-bg: #FFFFFF;
+            --section-alt-bg: #F8F9FE;
+            --navbar-bg: rgba(255, 255, 255, 0.055);
+            --border-subtle: rgba(0, 0, 0, 0.05);
 
             /* Gradients */
             --gradient-primary: linear-gradient(135deg, var(--purple-primary) 0%, var(--blue-primary) 100%);
@@ -54,6 +72,20 @@
             --transition-smooth: all 0.3s ease;
         }
 
+        :root[data-theme="dark"] {
+            --page-bg: #12121f;
+            --heading-color: #F0F0F7;
+            --body-text: #C7C7DA;
+            --card-bg: #1E1E34;
+            --section-alt-bg: #181828;
+            --navbar-bg: rgba(20, 20, 35, 0.6);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+        }
+
+        :root[data-theme="dark"] section.bg-light {
+            background-color: var(--section-alt-bg) !important;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -64,11 +96,12 @@
         }
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--light);
-            color: var(--text);
+            background-color: var(--page-bg);
+            color: var(--body-text);
             line-height: 1.7;
             overflow-x: hidden;
             position: relative;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         body::before {
@@ -91,7 +124,7 @@
         h4,
         h5,
         h6 {
-            color: var(--dark);
+            color: var(--heading-color);
             font-weight: 700;
             line-height: 1.3;
         }
@@ -122,7 +155,7 @@
 
         /* Navigation */
         .navbar {
-            background: rgba(255, 255, 255, 0.055);
+            background: var(--navbar-bg);
             backdrop-filter: blur(15px);
             box-shadow: 0 5px 25px rgba(8, 150, 227, 0.824);
             padding: 20px 0;
@@ -170,7 +203,7 @@
 
         .nav-link {
             font-weight: 500;
-            color: var(--text) !important;
+            color: var(--body-text) !important;
             margin: 0 5px;
             padding: 10px 20px !important;
             border-radius: 50px;
@@ -218,6 +251,17 @@
             box-shadow: none;
         }
 
+        .theme-toggle-btn {
+            width: 46px;
+            height: 46px;
+            padding: 0 !important;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
         /* Main Content Area */
         .main-content {
             min-height: calc(100vh - 180px);
@@ -257,6 +301,54 @@
             background: linear-gradient(135deg, rgba(108, 99, 255, 0.1), rgba(108, 99, 255, 0.05));
             color: var(--purple-dark);
             border-left-color: var(--purple-primary);
+        }
+
+        :root[data-theme="dark"] .alert-success { color: #7EE08C; }
+        :root[data-theme="dark"] .alert-warning { color: #FFD866; }
+        :root[data-theme="dark"] .alert-danger { color: #FF8B96; }
+        :root[data-theme="dark"] .alert-info { color: var(--purple-light); }
+
+        /* Bootstrap component dark-mode overrides */
+        :root[data-theme="dark"] .text-dark { color: var(--body-text) !important; }
+
+        :root[data-theme="dark"] .modal-content {
+            background: var(--card-bg);
+            color: var(--body-text);
+        }
+
+        :root[data-theme="dark"] .form-control,
+        :root[data-theme="dark"] .form-select,
+        :root[data-theme="dark"] .input-group-text {
+            background-color: #22223A;
+            border-color: rgba(255, 255, 255, 0.15);
+            color: var(--body-text);
+        }
+
+        :root[data-theme="dark"] .form-control:focus,
+        :root[data-theme="dark"] .form-select:focus {
+            background-color: #22223A;
+            color: var(--body-text);
+        }
+
+        :root[data-theme="dark"] .form-control::placeholder {
+            color: var(--text-light);
+        }
+
+        :root[data-theme="dark"] .btn-close {
+            filter: invert(1) grayscale(100%) brightness(200%);
+        }
+
+        :root[data-theme="dark"] .accordion-item {
+            background-color: var(--card-bg);
+            border-color: var(--border-subtle);
+        }
+
+        :root[data-theme="dark"] .accordion-body {
+            color: var(--body-text);
+        }
+
+        :root[data-theme="dark"] .text-muted {
+            color: var(--text-light) !important;
         }
 
         /* Buttons */
@@ -349,7 +441,7 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             overflow: hidden;
-            background: white;
+            background: var(--card-bg);
             position: relative;
         }
 
@@ -631,7 +723,7 @@
         /* Responsive Adjustments */
         @media (max-width: 992px) {
             .navbar-collapse {
-                background: white;
+                background: var(--card-bg);
                 border-radius: var(--radius);
                 padding: 20px;
                 box-shadow: var(--shadow);
@@ -701,6 +793,11 @@
                 <i class="fas fa-sign-in-alt me-2"></i>Login
             </a>
         </li> -->
+                    <li class="nav-item ms-lg-2">
+                        <button type="button" id="themeToggle" class="btn btn-outline-primary theme-toggle-btn" aria-label="Toggle dark mode" title="Toggle dark mode">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
                 </ul>
             </div>
 
@@ -837,6 +934,30 @@
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
     <script>
+        // Dark mode toggle
+        document.addEventListener('DOMContentLoaded', function () {
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
+
+            function updateIcon(theme) {
+                if (!themeIcon) return;
+                themeIcon.classList.toggle('fa-moon', theme !== 'dark');
+                themeIcon.classList.toggle('fa-sun', theme === 'dark');
+            }
+
+            updateIcon(document.documentElement.getAttribute('data-theme'));
+
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function () {
+                    const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+                    const next = current === 'dark' ? 'light' : 'dark';
+                    document.documentElement.setAttribute('data-theme', next);
+                    updateIcon(next);
+                    try { localStorage.setItem('theme', next); } catch (e) {}
+                });
+            }
+        });
+
         // Initialize AOS animations
         document.addEventListener('DOMContentLoaded', function () {
             // Navbar scroll effect
