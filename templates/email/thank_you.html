@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You - Bring Back EdTech</title>
+</head>
+<body style="margin:0; padding:0; background-color:#F8F9FE; font-family:'Poppins', Arial, sans-serif;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#F8F9FE; padding:30px 15px;">
+        <tr>
+            <td align="center">
+                <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px; width:100%; background-color:#ffffff; border-radius:16px; overflow:hidden; box-shadow:0 10px 30px rgba(108, 99, 255, 0.15);">
+
+                    <!-- Header -->
+                    <tr>
+                        <td align="center" style="background-color:#6C63FF; background-image:linear-gradient(135deg, #6C63FF 0%, #36D1DC 100%); padding:35px 20px;">
+                            <img src="cid:logo" width="56" height="56" alt="Bring Back EdTech" style="border-radius:12px; display:block; margin:0 auto 12px;">
+                            <span style="color:#ffffff; font-size:22px; font-weight:700; font-family:Arial, sans-serif;">Bring Back EdTech</span>
+                        </td>
+                    </tr>
+
+                    <!-- Body -->
+                    <tr>
+                        <td style="padding:40px 35px;">
+                            <p style="font-size:40px; text-align:center; margin:0 0 10px;">🎉</p>
+                            <h1 style="font-size:24px; color:#2D2B55; text-align:center; margin:0 0 20px; font-family:Arial, sans-serif;">Thank You, {{ name }}!</h1>
+
+                            {% if kind == 'contact' %}
+                            <p style="font-size:15px; line-height:1.7; color:#4A4A68; margin:0 0 20px;">
+                                We really appreciate you reaching out to <strong>Bring Back EdTech</strong>. Your message means a lot to us, and our team is already looking into it. We'll get back to you within 24 hours.
+                            </p>
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#F8F9FE; border-left:4px solid #6C63FF; border-radius:8px; margin:0 0 25px;">
+                                <tr>
+                                    <td style="padding:18px 20px;">
+                                        <p style="margin:0 0 8px; font-size:13px; color:#8C8CA1; text-transform:uppercase; letter-spacing:0.5px;">Your Message</p>
+                                        <p style="margin:0 0 6px; font-size:14px; color:#2D2B55;"><strong>Subject:</strong> {{ subject }}</p>
+                                        <p style="margin:0; font-size:14px; color:#4A4A68; line-height:1.6;">{{ message }}</p>
+                                    </td>
+                                </tr>
+                            </table>
+                            {% else %}
+                            <p style="font-size:15px; line-height:1.7; color:#4A4A68; margin:0 0 20px;">
+                                Thank you for choosing to learn with us! We're thrilled to have you on board for <strong>{{ course }}</strong>. Our admissions team truly appreciates your interest and will reach out shortly with the next steps.
+                            </p>
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#F8F9FE; border-left:4px solid #6C63FF; border-radius:8px; margin:0 0 25px;">
+                                <tr>
+                                    <td style="padding:18px 20px;">
+                                        <p style="margin:0 0 8px; font-size:13px; color:#8C8CA1; text-transform:uppercase; letter-spacing:0.5px;">Enrollment Details</p>
+                                        <p style="margin:0 0 6px; font-size:14px; color:#2D2B55;"><strong>Course:</strong> {{ course }}</p>
+                                        <p style="margin:0; font-size:14px; color:#2D2B55;"><strong>Phone:</strong> {{ phone }}</p>
+                                    </td>
+                                </tr>
+                            </table>
+                            {% endif %}
+
+                            <p style="font-size:15px; line-height:1.7; color:#4A4A68; margin:0 0 30px;">
+                                With gratitude and appreciation,<br>
+                                <strong>The Bring Back EdTech Team</strong>
+                            </p>
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto;">
+                                <tr>
+                                    <td align="center" style="background-color:#6C63FF; background-image:linear-gradient(135deg, #6C63FF 0%, #36D1DC 100%); border-radius:50px;">
+                                        <a href="{{ site_url }}" style="display:inline-block; padding:14px 32px; color:#ffffff; text-decoration:none; font-weight:600; font-size:14px; font-family:Arial, sans-serif;">Visit Our Website</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td style="background-color:#2D2B55; padding:25px 35px; text-align:center;">
+                            <p style="margin:0 0 8px; color:rgba(255,255,255,0.8); font-size:13px;">bringbackedutech@gmail.com &nbsp;|&nbsp; +91 8179641998</p>
+                            <p style="margin:0; color:rgba(255,255,255,0.5); font-size:12px;">&copy; 2025 Bring Back EdTech Pvt Ltd. All rights reserved.</p>
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

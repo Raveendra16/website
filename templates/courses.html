@@ -175,7 +175,7 @@
                                         <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#courseModal{{ loop.index }}">
                                             <i class="fas fa-info-circle me-1"></i> Details
                                         </button>
-                                        <a href="#" class="btn btn-success btn-sm ms-2">
+                                        <a href="#" class="btn btn-success btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#enrollModal" onclick="prefillEnrollCourse('{{ course.title }}')">
                                             <i class="fas fa-shopping-cart me-1"></i> Enroll
                                         </a>
                                     </div>
@@ -187,7 +187,7 @@
             </div>
             {% endfor %}
         </div>
-        
+
         <!-- Course Modals -->
         {% for course in courses %}
         <div class="modal fade" id="courseModal{{ loop.index }}" tabindex="-1" aria-labelledby="courseModalLabel{{ loop.index }}" aria-hidden="true">
@@ -195,7 +195,7 @@
                 <div class="modal-content">
                     <div class="modal-header gradient-bg text-white">
                         <h5 class="modal-title" id="courseModalLabel{{ loop.index }}">
-                            <i class="fas {{ course.icon }} me-2"></i>{{ course.title }}
+                            <i class="{{ course.icon }} me-2"></i>{{ course.title }}
                         </h5>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
@@ -244,11 +244,11 @@
                                         <button class="btn btn-primary btn-sm" onclick="downloadBrochure('{{ course.title }}')">
                                             <i class="fas fa-download me-1"></i>  Brochure
                                         </button>
-                                        <a href="#" class="btn btn-success btn-sm ms-2">
+                                        <a href="#" class="btn btn-success btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#enrollModal" onclick="prefillEnrollCourse('{{ course.title }}')">
                                             <i class="fas fa-shopping-cart me-1"></i> Enroll
                                         </a>
                                     </div>
-    
+
                                 </div>
                             </div>
                         </div>
@@ -257,6 +257,61 @@
             </div>
         </div>
         {% endfor %}
+
+        <!-- Enrollment Modal -->
+        <div class="modal fade" id="enrollModal" tabindex="-1" aria-labelledby="enrollModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header gradient-bg text-white">
+                        <h5 class="modal-title" id="enrollModalLabel">
+                            <i class="fas fa-shopping-cart me-2"></i>Enroll Now
+                        </h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form method="POST" action="{{ url_for('enroll') }}" id="enrollForm" class="needs-validation" novalidate>
+                        <div class="modal-body">
+                            {{ enroll_form.hidden_tag() }}
+
+                            <div class="form-group mb-3">
+                                {{ enroll_form.name.label(class="form-label fw-bold text-dark") }}
+                                {{ enroll_form.name(class="form-control", placeholder="Enter your full name") }}
+                                {% for error in enroll_form.name.errors %}
+                                <div class="text-danger small mt-1"><i class="fas fa-exclamation-circle me-1"></i>{{ error }}</div>
+                                {% endfor %}
+                            </div>
+
+                            <div class="form-group mb-3">
+                                {{ enroll_form.email.label(class="form-label fw-bold text-dark") }}
+                                {{ enroll_form.email(class="form-control", placeholder="Enter your email address") }}
+                                {% for error in enroll_form.email.errors %}
+                                <div class="text-danger small mt-1"><i class="fas fa-exclamation-circle me-1"></i>{{ error }}</div>
+                                {% endfor %}
+                            </div>
+
+                            <div class="form-group mb-3">
+                                {{ enroll_form.phone.label(class="form-label fw-bold text-dark") }}
+                                {{ enroll_form.phone(class="form-control", placeholder="Enter your phone number") }}
+                                {% for error in enroll_form.phone.errors %}
+                                <div class="text-danger small mt-1"><i class="fas fa-exclamation-circle me-1"></i>{{ error }}</div>
+                                {% endfor %}
+                            </div>
+
+                            <div class="form-group mb-3">
+                                {{ enroll_form.course.label(class="form-label fw-bold text-dark") }}
+                                {{ enroll_form.course(class="form-select") }}
+                                {% for error in enroll_form.course.errors %}
+                                <div class="text-danger small mt-1"><i class="fas fa-exclamation-circle me-1"></i>{{ error }}</div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Cancel</button>
+                            {{ enroll_form.submit(class="btn btn-success") }}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -503,6 +558,36 @@
         // link.click(); // Uncomment in real implementation
     }
     
+    function prefillEnrollCourse(courseTitle) {
+        const courseSelect = document.getElementById('course');
+        if (courseSelect) {
+            courseSelect.value = courseTitle;
+        }
+    }
+
+    // Enroll form: open WhatsApp with a prefilled message, then let the form submit normally
+    document.addEventListener('DOMContentLoaded', function() {
+        const enrollForm = document.getElementById('enrollForm');
+        if (enrollForm) {
+            enrollForm.addEventListener('submit', function(event) {
+                if (!enrollForm.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    enrollForm.classList.add('was-validated');
+                    return;
+                }
+                enrollForm.classList.add('was-validated');
+
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const course = document.getElementById('course').value;
+                const text = `New Enrollment Request\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nCourse: ${course}`;
+                window.open(`https://wa.me/{{ admin_whatsapp }}?text=${encodeURIComponent(text)}`, '_blank');
+            }, false);
+        }
+    });
+
     // Initialize tooltips
     document.addEventListener('DOMContentLoaded', function() {
         var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));

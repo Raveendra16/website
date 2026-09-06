@@ -579,22 +579,26 @@
     // Form validation enhancement
     document.addEventListener('DOMContentLoaded', function() {
         const form = document.querySelector('form.needs-validation');
-        
+
         if (form) {
             form.addEventListener('submit', function(event) {
                 if (!form.checkValidity()) {
                     event.preventDefault();
                     event.stopPropagation();
+                    form.classList.add('was-validated');
+                    return;
                 }
                 form.classList.add('was-validated');
+
+                const name = form.querySelector('#name').value;
+                const email = form.querySelector('#email').value;
+                const subject = form.querySelector('#subject').value;
+                const message = form.querySelector('#message').value;
+                const text = `New Contact Message\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\nMessage: ${message}`;
+                window.open(`https://wa.me/{{ admin_whatsapp }}?text=${encodeURIComponent(text)}`, '_blank');
             }, false);
         }
     });
 </script>
-{% if msg %}
-<script>
-    alert('{{ msg }}');
-</script>
-{% endif %}
 
 {% endblock %}
